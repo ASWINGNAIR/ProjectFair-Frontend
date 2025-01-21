@@ -90,7 +90,7 @@ function AddProject() {
         console.log(result);
 
         if (result.status == 200) {
-          alert('Project added successfully')
+          toast.success('Project added successfully')
           setTimeout(() => {
             handleClose()
           }, 2000)
@@ -99,11 +99,11 @@ function AddProject() {
 
         }
         else if (result.status == 406) {
-          alert(result.response.data)
+          toast.warning(result.response.data)
           handleCancel()
         }
         else {
-          alert('Something went wrong')
+          toast.error('Something went wrong')
           handleClose()
         }
 

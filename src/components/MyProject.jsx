@@ -7,6 +7,8 @@ import { faGlobe, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { allUserProjectApi, removeUserProjectApi } from '../Service/allApi'
 import { Link } from 'react-router-dom'
 import { addResponseContext, editProjectResponse } from '../Context/ContextShare'
+import { ToastContainer } from 'react-bootstrap';
+import { toast } from 'react-toastify'
 
 function MyProject() {
 
@@ -43,10 +45,10 @@ function MyProject() {
       console.log(result);
       if (result.status == 200) {
         setRemoveStatus(result)
-        alert('Project Deleted Successfully')
+        toast.success('Project Deleted Successfully')
       }
       else {
-        alert('Something Went Wrong')
+        toast.error('Something Went Wrong')
       }
     }
 
@@ -84,6 +86,8 @@ function MyProject() {
             <h4 className='text-center text-warning mt-5'>No Project added</h4>
         }
       </div>
+
+      <ToastContainer position='top-center' autoClose={2000} theme='colored' />
     </>
   )
 }
